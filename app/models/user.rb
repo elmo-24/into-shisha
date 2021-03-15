@@ -13,4 +13,5 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :stores
   has_many :comments
+  has_one_attached :image
 end
