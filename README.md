@@ -19,10 +19,10 @@
 | --------------------- | ----------- | ------------------------------ |
 | visit_date            | date        | null: false                    |
 | message               | text        | null: false                    |
-| flavor                | text        | null: false                    |
+| flavor                | string      | null: false                    |
 | companion_id          | integer     | null: false                    |
 | price                 | string      | null: false                    |
-| user                  | references  | bull: false, foreign_key: true |
+| user                  | references  | null: false, foreign_key: true |
 
 
 
