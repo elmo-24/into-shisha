@@ -27,7 +27,7 @@
       <li class='list'>
         <%= link_to review_path(review.id) do %>
         <div class='review-img-content'>
-          <%= image_tag review.image, class: "review-img" if review.image.attached? %>
+          <%= image_tag review.image, class: "review-img" %>
       
 
         </div>
@@ -36,7 +36,7 @@
             <%#= review.store.name %>
           <%#</h3>%>
           <div class='review-date'>
-            <span><%= review.visit_date %><br><%= review.message %></span>
+            <span><%= review.visit_date %></span>
             <div class='heart-btn'>
               <%= image_tag "heart.png", class:"heart-icon" %>
               <span class='heart-count'>0</span>
