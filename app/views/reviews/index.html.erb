@@ -1,1 +1,18 @@
-LIFE WITH SHISHA
+<h1>LIFE WITH SHISHA</h1>
+
+
+<h1>みんなの煙活一覧</h1>
+
+<% @reviews.each do |review| %>
+  <div class="review">
+    <div class="review-date">
+      <%= review.visit_date %>
+    </div>
+    <div class="review-flavor">
+      <%= review.flavor %>
+    </div>
+    <div class="article-text">
+      <%= review.message %>
+    </div>
+  </div>
+<% end %>

@@ -23,6 +23,7 @@
 | companion_id          | integer     | null: false                    |
 | price                 | string      | null: false                    |
 | user                  | references  | null: false, foreign_key: true |
+| store                 | references  | null: false, foreign_key: true |
 
 
 
@@ -30,6 +31,7 @@
 
 - belongs_to :user
 - has_many :comments
+- belongs_to :store
 
 ## comments テーブル
 
