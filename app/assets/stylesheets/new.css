@@ -1,0 +1,50 @@
+.review-box {
+  height:800px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.review-content {
+  height:800px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flavor {
+  height: 30px;
+  width: 300px;
+  margin: 20px;
+}
+
+.price {
+  height: 30px;
+  width: 300px;
+  margin: 20px;
+}
+
+.message {
+  height: 100px;
+  width: 250px;
+  resize:none;
+  margin-bottom: 20px;
+}
+
+.companion-select{
+  height: 30px;
+  width: 250px;
+}
+
+.btn {
+  width: 200px;
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid white;
+  background-color: orange;
+  color: white;
+}
