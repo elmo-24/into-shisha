@@ -11,11 +11,6 @@ RSpec.describe Review, type: :model do
         it '全ての情報を入力すればレビュー投稿できること' do
           expect(@review).to be_valid
         end
-
-        it 'imageが空でも保存できること' do
-          @review.image = nil
-          expect(@review).to be_valid
-        end
       end
 
       context 'レビュー投稿できないとき' do
@@ -77,6 +72,12 @@ RSpec.describe Review, type: :model do
           @review.price = 'onemillion'
           @review.valid?
           expect(@review.errors.full_messages).to include("Price is invalid")
+        end
+
+        it 'imageが空では登録できない' do
+          @review.image = nil
+          @review.valid?
+          expect(@review.errors.full_messages).to include("Image can't be blank")
         end
 
       end

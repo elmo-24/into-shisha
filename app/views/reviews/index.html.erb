@@ -1,18 +1,86 @@
-<h1>LIFE WITH SHISHA</h1>
 
-
-<h1>みんなの煙活一覧</h1>
-
-<% @reviews.each do |review| %>
-  <div class="review">
-    <div class="review-date">
-      <%= review.visit_date %>
-    </div>
-    <div class="review-flavor">
-      <%= review.flavor %>
-    </div>
-    <div class="article-text">
-      <%= review.message %>
+<%# 画面上部部分 %>
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      みんなのシーシャ活動アプリ
+    </h2>
+    <p class='service-explain'>
+      IN TO SHISHAはみんなのシーシャ活動記録がシェアできる
+    </p>
+    <p class='service-explain'>
+      シーシャ業界初のsnsアプリです
+    </p>
+    <div class='store-btn'>
+      <%#= link_to image_tag("app/assets/images/app.png", class:"apple-btn"), "#" %>
+      <%#= link_to image_tag("app/assets/images/google.png", class:"google-btn"), "#" %>
     </div>
   </div>
+  <%# /画面上部部分  %>
+
+<%# レビュー一覧表示 %>
+<div class='review-contents'>
+    <h2 class='title'>みんなの煙活一覧</h2>
+    <%= link_to '新規投稿', "#", class: "subtitle" %>
+    <ul class='review-lists'>
+
+    <% @reviews.each do |review| %>
+      <li class='list'>
+        <%= link_to review_path(review.id) do %>
+        <div class='review-img-content'>
+          <%= image_tag review.image, class: "review-img" %>
+      
+
+        </div>
+        <div class='review-info'>
+          <%#<h3 class='review-name'>%>
+            <%#= review.store.name %>
+          <%#</h3>%>
+          <div class='review-date'>
+            <span><%= review.visit_date %></span>
+            <div class='heart-btn'>
+              <%= image_tag "heart.png", class:"heart-icon" %>
+              <span class='heart-count'>0</span>
+            </div>
+          </div>
+
+          <div class="review-flavor">
+             <%= review.flavor %>
+          </div>
+          <div class="review-message">
+             <%= review.message %>
+          </div>
+        </div>
+        <% end %>
+      </li>
+    <% end %>
+
+    <% if @reviews.length == 0 %>
+      <li class='list'>
+        <%= link_to '#' do %>
+        <%= image_tag "app/assets/images/shisha.png", class: "shisha-img" %>
+        <div class='review-info'>
+          <h3 class='review-name'>
+            レビューを投稿してね！
+          </h3>
+          <div class='review-date'>
+            <span>20XX-01-01<br></span>
+            <div class='heart-btn'>
+              <%= image_tag "heart.png", class:"heart-icon" %>
+              <span class='heart-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>
+    <% end%>
+
+    </ul>
+  </div>
+
+</div>
+<%= link_to( new_review_path,method: :get, class: 'review-btn') do %>
+  <span class='review-btn-text'>レビューする</span>
+  <%= image_tag 'review-btn.png' , size: '185x50' ,class: "review-btn-icon" %>
 <% end %>
+
+<%# /レビュー一覧表示 %>
