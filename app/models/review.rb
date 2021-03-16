@@ -10,13 +10,9 @@ class Review < ApplicationRecord
     validates :message
     validates :flavor
     validates :price, format: { with: /\A[0-9]+\z/ }
+    validates :image
   end
 
   validates :companion_id, numericality: { other_than: 1 }
-  validates :message, presence: true, unless: :was_attached?
-
-  def was_attached?
-    self.image.attached?
-  end
   
 end
