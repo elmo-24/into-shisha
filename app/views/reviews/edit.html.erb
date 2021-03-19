@@ -1,0 +1,28 @@
+<%= form_with model: @review, local: true do |f| %>
+
+  <div class="review-box">
+    レビューを編集する
+    <div class="visit_date">
+      <%= f.label :visit_date %>
+      <%= f.date_select :visit_date, {use_month_numbers: true, start_year: 2000, end_year: Time.now.year}, {class:"visit"} %>
+    </div>
+    <div class="review-content">
+      <%= f.label :flavor %>
+      <%= f.text_field :flavor, class:"flavor", placeholder:"フレーバー" %>
+
+      <%= f.label :price %>
+      <%= f.text_field :price, class:"price", placeholder:"利用料金" %>
+
+      <%= f.label :message %>
+      <%= f.text_area :message, class:"message", placeholder:"テキスト" %>
+
+      <%= f.label :companion %>
+      <%= f.collection_select(:companion_id, Companion.all, :id, :name, {}, {class:"companion-select"}) %>
+
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+
+      <%= f.submit "変更する" ,class:"btn" %>
+    </div>
+  </div>
+<% end %>
