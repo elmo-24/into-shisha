@@ -35,6 +35,15 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    if @review.destroy
+      redirect_to root_path
+     else
+      render :show
+     end
+  end
+
   private
 
   def review_params
