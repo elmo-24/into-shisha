@@ -17,6 +17,11 @@
           <div class="user_nav grid-6">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
             <%= link_to "投稿する", new_review_path, class: "post" %>
+             <% if current_user.image.attached? %>
+              <%= link_to image_tag(current_user.image, class: "mypage-show"), user_path(current_user.id) %>
+            <% else %>
+              <%= link_to image_tag("user.png", class: "mypage-show"), user_path(current_user.id) %>
+            <% end %>
           </div>
         <% else %>
           <div class="grid-6">

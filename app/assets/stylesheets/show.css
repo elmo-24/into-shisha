@@ -1,12 +1,11 @@
 /* 商品の概要 */
 
 .review-show {
-  background-color: #f8f8f8;
+  background-color: #342e4b;
   width: 100vw;
-  display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5vh 0;
+  padding: 5vh 5vh;
 }
 
 .review-box {
