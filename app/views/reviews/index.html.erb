@@ -37,17 +37,21 @@
           <%#</h3>%>
           <div class='review-date'>
             <span><%= review.visit_date %></span>
-            <div class='heart-btn'>
-              <%= image_tag "heart.png", class:"heart-icon" %>
-              <span class='heart-count'>0</span>
-            </div>
-          </div>
-
+           
           <div class="review-flavor">
              <%= review.flavor %>
           </div>
           <div class="review-message">
              <%= review.message %>
+          </div>
+
+           <div class='review-check-btn'>
+              <%= image_tag "heart.png", class:"heart-icon" %>
+              <span class='heart-count'>0</span>
+              <%= link_to root_path do %>
+              <%= image_tag "comment.png" ,class:"comment-icon" %>
+              <% end %>
+            </div>
           </div>
         </div>
         <% end %>
@@ -68,6 +72,7 @@
               <%= image_tag "heart.png", class:"heart-icon" %>
               <span class='heart-count'>0</span>
             </div>
+            
           </div>
         </div>
         <% end %>

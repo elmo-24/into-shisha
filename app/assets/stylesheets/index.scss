@@ -101,12 +101,18 @@
 }
 
 
-.heart-btn {
+.review-check-btn {
   display: flex;
   align-items: center;
 }
 
 .heart-icon {
+  height: 2vh;
+  width: 2vh;
+  margin-right: 0.5vw;
+}
+
+.comment-icon {
   height: 2vh;
   width: 2vh;
   margin-right: 0.5vw;
