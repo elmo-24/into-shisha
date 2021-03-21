@@ -10,6 +10,8 @@ class User < ApplicationRecord
     validates :password,format:{with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
   end
 
+  validates :profile, length: { maximum: 200 }
+
   has_many :sns_credentials
   has_many :reviews
   has_many :stores

@@ -1,0 +1,99 @@
+<div class="main">
+  <div class="contents-main">
+    <% if current_user.image.attached? %>
+      <%= image_tag current_user.image, class: "review-img" %>
+    <% else %>
+      <%= image_tag "user.png", class: "review-img" %>
+    <% end %>
+  </div>
+  <div class="user-name">
+    <%= @nickname %>
+    <%= link_to "ユーザー情報編集", "#" %>
+  </div>
+  <div class="user-lists">
+    <ul>
+      <li><%= link_to "favorite store", "#" %></li>
+      <li><%= link_to "favorite flavor", "#" %></li>
+    </ul>
+  </div>
+  <div class="smoke-count">
+    <%= link_to "今月の煙活", "#" %>
+  </div>
+</div>
+
+
+
+
+<div class="contents-row">
+  <p><%= @nickname %>さんのレビュー投稿一覧</p>
+
+  <%# レビューの概要 %>
+    
+      <% current_user.reviews.each do |review| %>
+      <div class="review-show">
+      
+        <div class="review-box">
+          
+          <div class="review-price-box">
+            <%# <span class="item-price">
+            <%= @ %>
+            <%#</span> %>
+            <span class="review-postage">
+              <%= review.visit_date %>
+            </span>
+          </div>
+          
+
+          <div class="review-explain-box">
+            <span><%= review.message %></span>
+          </div>
+          <table class="detail-table">
+            <tbody>
+              <tr>
+                <th class="detail-review">利用料金</th>
+                <td class="detail-value"><%= "¥#{review.price}" %></td>
+              </tr>
+              <tr>
+                <th class="detail-review">フレーバー</th>
+                <td class="detail-value"><%= review.flavor %></td>
+              </tr>
+              <tr>
+                <th class="detail-review">同行者</th>
+                <td class="detail-value"><%= review.companion.name %></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="review-img-content">
+            <%= image_tag review.image ,class:"review-box-img" %>
+          </div>
+          <% if user_signed_in? %>
+              <% if current_user.id == review.user_id %>
+              <ul class="more-list">
+              <li>
+                <%= link_to '編集', edit_review_path(review.id), method: :get, class: "item-red-btn" %>
+              </li>
+              /
+              <li>
+                <%= link_to '削除', review_path(review.id), method: :delete, class:"item-destroy" %>
+              </li>
+            </ul>
+          </div>
+              <% end %>
+          <% end %>
+          <div class="option">
+            <div class="favorite-btn">
+              <%= image_tag "heart.png" ,class:"favorite-icon" ,width:"20",height:"20"%>
+              <span> 0</span>
+            </div>
+            <%= link_to root_path do %>
+            <div class="comment-review-btn">
+              <%= image_tag "comment.png" ,class:"comment-icon" ,width:"20",height:"20"%>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <%# /商品の概要 %>
+     </div>
+    <% end %>
+
+</div>

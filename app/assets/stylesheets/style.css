@@ -803,7 +803,7 @@ header.header .user_nav span:hover ul {
 }
 
 header.header .user_nav ul {
-  display: none;
+  display: flex;
   position: absolute;
   top: 46px;
   right: 0;
@@ -821,6 +821,13 @@ header.header .user_nav ul li a {
   padding: 10px 20px;
   text-align: left;
   border-bottom: 1px solid #d8d8d8;
+}
+.mypage-show {
+  border-radius: 50%;
+  background-color: #ddd;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
 }
 
 .form {
