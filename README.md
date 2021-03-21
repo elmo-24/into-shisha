@@ -39,6 +39,7 @@
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
 | review | references | null: false, foreign_key: true |
+| text   | text       | null: false                    |
 
 ### Association
 

@@ -126,13 +126,18 @@
 }
 
 /* /商品の概要 */
+.comment-content {
+  display: flex;
+  justify-content: space-between;
+}
 
-.comment-box {
+.comment-form {
   width: 40vw;
   background-color: #fff;
   margin: 5vh 0;
   text-align: center;
 }
+
 
 .comment-text {
   width: 100%;

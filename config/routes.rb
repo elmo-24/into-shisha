@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: 'reviews#index'
-  resources :reviews
+  resources :reviews do
+    resources :comments, only: [:create, :destroy]
+  end
   resources :users
 end
