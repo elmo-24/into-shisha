@@ -51,7 +51,7 @@
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | store_name       | string     | null: false                    |
-| store_type_id    | integer    | null: false                    |
+| store_type_id    | integer    |                                |
 | postal_code      | string     | null: false                    |
 | prefecture_id    | integer    | null: false                    |
 | city             | string     | null: false                    |
@@ -59,21 +59,20 @@
 | phone_number     | string     | null: false                    |
 | building_name    | string     |                                |
 | access           | string     | null: false                    |
-| home_page        | string     | null: false                    |
-| day_off          | string     | null: false                    |
-| opening_hours    | string     | null: false                    |
+| home_page        | string     |                                |
+| day_off          | string     |                                |
+| opening_hours    | string     |                                |
 | minimum_charge   | string     | null: false                    |
-| price_info       | string     | null: false                    |
-| flavor           | string     | null: false                    |
-| vibe_id          | integer    | null: false                    |
-| bring_id         | integer    | null: false                    |
-| concent_id       | integer    | null: false                    |
-| alcohol_id       | integer    | null: false                    |
-| smoke_id         | integer    | null: false                    |
-| flavor_sale_id   | integer    | null: false                    |
-| wifi_id          | integer    | null: false                    |
-| card_id          | integer    | null: false                    |
-| additional_info  | text       | null: false                    |
+| price_info       | string     |                                |
+| vibe_id          | integer    |                                |
+| bring_id         | integer    |                                |
+| concent_id       | integer    |                                |
+| alcohol_id       | integer    |                                |
+| smoke_id         | integer    |                                |
+| flavor_sale_id   | integer    |                                |
+| wifi_id          | integer    |                                |
+| card_id          | integer    |                                |
+| additional_info  | text       |                                |
 | user             | references | null: false, foreign_key: true |
 
 ### Association
