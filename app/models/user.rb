@@ -13,8 +13,8 @@ class User < ApplicationRecord
   validates :profile, length: { maximum: 200 }
 
   has_many :sns_credentials
-  has_many :reviews
-  has_many :stores
+  has_many :reviews, dependent: :destroy
+  has_many :stores, dependent: :destroy
   has_many :comments
   has_one_attached :image
 

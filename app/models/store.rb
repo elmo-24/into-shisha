@@ -12,7 +12,7 @@ class Store < ApplicationRecord
   belongs_to_active_hash :card
 
   belongs_to :user
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   with_options presence: true do
     validates :store_name
