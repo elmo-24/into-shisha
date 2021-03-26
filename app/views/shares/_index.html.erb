@@ -1,0 +1,32 @@
+ <li class='list'>
+        <%= link_to review_path(review.id) do %>
+        <div class='review-img-content'>
+          <%= image_tag review.image, class: "review-img" %>
+      
+
+        </div>
+        <div class='review-info'>
+          <%#<h3 class='review-name'>%>
+            <%#= review.store.name %>
+          <%#</h3>%>
+          <div class='review-date'>
+            <span><%= review.visit_date %></span>
+           
+          <div class="review-flavor">
+             <%= review.flavor %>
+          </div>
+          <div class="review-message">
+             <%= review.message %>
+          </div>
+
+           <div class='review-check-btn'>
+              <%= image_tag "heart.png", class:"heart-icon" %>
+              <span class='heart-count'>0</span>
+              <%= link_to root_path do %>
+              <%= image_tag "comment.png" ,class:"comment-icon" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>

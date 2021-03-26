@@ -42,11 +42,11 @@
             <% if current_user.id == @review.user_id %>
             <ul class="more-list">
             <li>
-              <%= link_to '編集', edit_review_path(@review.id), method: :get, class: "item-red-btn" %>
+              <%= link_to '編集', edit_store_review_path(@store.id, @review.id), method: :get, class: "item-red-btn" %>
             </li>
             /
             <li>
-              <%= link_to '削除', review_path(@review.id), method: :delete, class:"item-destroy" %>
+              <%= link_to '削除', store_review_path(@store.id, @review.id), method: :delete, class:"item-destroy" %>
             </li>
             </ul>
             <% end %>
@@ -55,7 +55,7 @@
       
         <div class="coment-form">
             <% if user_signed_in? %>
-              <%= form_with(model: [@review, @comment], local: true) do |form| %>
+              <%= form_with(model: [@store, @review, @comment], local: true) do |form| %>
                 <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
                 <%= form.submit "SEND" %>
               <% end %>

@@ -24,38 +24,7 @@
     <ul class='review-lists'>
 
     <% @reviews.each do |review| %>
-      <li class='list'>
-        <%= link_to review_path(review.id) do %>
-        <div class='review-img-content'>
-          <%= image_tag review.image, class: "review-img" %>
-      
-
-        </div>
-        <div class='review-info'>
-          <%#<h3 class='review-name'>%>
-            <%#= review.store.name %>
-          <%#</h3>%>
-          <div class='review-date'>
-            <span><%= review.visit_date %></span>
-           
-          <div class="review-flavor">
-             <%= review.flavor %>
-          </div>
-          <div class="review-message">
-             <%= review.message %>
-          </div>
-
-           <div class='review-check-btn'>
-              <%= image_tag "heart.png", class:"heart-icon" %>
-              <span class='heart-count'>0</span>
-              <%= link_to root_path do %>
-              <%= image_tag "comment.png" ,class:"comment-icon" %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <% end %>
-      </li>
+      <%= render partial: "shares/index" %>
     <% end %>
 
     <% if @reviews.length == 0 %>
@@ -83,8 +52,8 @@
   </div>
 
 </div>
-<%= link_to( new_review_path,method: :get, class: 'review-btn') do %>
-  <span class='review-btn-text'>レビューする</span>
+<%= link_to( new_store_path,method: :get, class: 'review-btn') do %>
+  <span class='review-btn-text'>店舗登録する</span>
   <%= image_tag 'review-btn.png' , size: '185x50' ,class: "review-btn-icon" %>
 <% end %>
 

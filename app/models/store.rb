@@ -21,7 +21,6 @@ class Store < ApplicationRecord
     validates :house_number
     validates :phone_number
     validates :access
-    validates :minimum_charge
   end
 
   validates :prefecture_id, numericality: { other_than: 1 }
