@@ -102,6 +102,36 @@
     </table>
 
     <%= link_to 'この店舗のレビューをする', new_store_review_path(@store.id) %>
+
+    ＜この店舗のレビュー＞
+    <% @reviews.each do |review| %>
+      <%#= render partial: "shares/index" %>
+      <li class='list'>
+        <div class='review-img-content'>
+          <%= image_tag review.image, class: "review-img" %>
+        </div>
+        <div class='review-info'>
+          <%#<h3 class='review-name'>%>
+            <%#= review.store.name %>
+          <%#</h3>%>
+          <div class='review-date'>
+            <span><%= review.visit_date %></span>
+          </div>
+          <div class="review-flavor">
+             <%= review.flavor %>
+          </div>
+          <div class="review-message">
+             <%= review.message %>
+          </div>
+
+           <div class='review-check-btn'>
+              <%= image_tag "heart.png", class:"heart-icon" %>
+              <span class='heart-count'>0</span>
+           </div>
+          <%= link_to 'レビュー詳細', store_review_path(@store.id) %>
+        </div>
+     </li>
+    <% end %>
   
 </div>
 

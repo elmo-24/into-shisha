@@ -1,5 +1,5 @@
  <li class='list'>
-        <%= link_to review_path(review.id) do %>
+        <%= link_to store_review_path(@store.id) do %>
         <div class='review-img-content'>
           <%= image_tag review.image, class: "review-img" %>
       
@@ -29,4 +29,4 @@
           </div>
         </div>
         <% end %>
-      </li>
+ </li>

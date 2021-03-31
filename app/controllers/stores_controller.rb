@@ -18,11 +18,8 @@ class StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
+    @reviews = @store.reviews
   end
-
-def show
-  @store = Store.find(params[:id])
-end
 
 private
 
