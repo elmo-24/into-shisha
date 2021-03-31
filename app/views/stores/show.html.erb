@@ -1,0 +1,107 @@
+<%# 店舗の概要 %>
+<div class="storereview--show">
+
+    <div class="store-review-explain-box">
+      <span><%= @store.store_name %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-review">投稿者</th>
+          <td class="detail-value"><%= link_to @store.user.nickname, root_path %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">都道府県 / 市区町村</th>
+          <td class="detail-value"><%= "#{@store.prefecture.name}/#{@store.city}" %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">店タイプ</th>
+          <td class="detail-value"><%= @store.store_type.name %></td>
+        </tr>
+
+    ＜店舗詳細＞
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-review"></th>
+          <td class="detail-value"><%= @store.postal_code %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">住所</th>
+          <td class="detail-value"><%= "#{@store.prefecture.name}#{@store.city}#{@store.house_number}" %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">店までのアクセス</th>
+          <td class="detail-value"><%= @store.access %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">電話番号</th>
+          <td class="detail-value"><%= @store.phone_number %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">ホームページ</th>
+          <td class="detail-value"><%= @store.home_page %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">定休日</th>
+          <td class="detail-value"><%= @store.day_off %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">営業時間</th>
+          <td class="detail-value"><%= @store.opening_hours %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">最低料金</th>
+          <td class="detail-value"><%= @store.minimum_charge %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">料金情報</th>
+          <td class="detail-value"><%= @store.price_info %></td>
+        </tr>
+
+        ＜設備・ルール＞
+
+        <tr>
+          <th class="detail-review">店の雰囲気</th>
+          <td class="detail-value"><%= @store.vibe.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">飲食物の持ち込み</th>
+          <td class="detail-value"><%= @store.bring.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">コンセント</th>
+          <td class="detail-value"><%= @store.concent.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">お酒</th>
+          <td class="detail-value"><%= @store.alcohol.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">喫煙</th>
+          <td class="detail-value"><%= @store.smoke.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">フレーバー販売</th>
+          <td class="detail-value"><%= @store.flavor_sale.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">wifi環境</th>
+          <td class="detail-value"><%= @store.wifi.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">カード決済</th>
+          <td class="detail-value"><%= @store.card.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-review">補足情報</th>
+          <td class="detail-value"><%= @store.additional_info %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <%= link_to 'この店舗のレビューをする', new_store_review_path(@store.id) %>
+  
+</div>
+

@@ -1,5 +1,6 @@
 class StoresController < ApplicationController
   def index
+    @stores = Store.order("created_at DESC")
   end
 
   def new
@@ -13,7 +14,11 @@ class StoresController < ApplicationController
     else
       render :new
     end
-end
+  end
+
+  def show
+    @store = Store.find(params[:id])
+  end
 
 def show
   @store = Store.find(params[:id])
