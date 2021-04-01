@@ -19,9 +19,11 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find(params[:id])
-    @comment = Comment.new
-    @comments = @review.comments.includes(:user).order("created_at DESC")
+    @store = Store.find(params[:store_id])
+    @review = Store.find(params[:store_id]).reviews.find(params[:id])
+    # @review = Review.find_by(id: params[:id], store_id: params[:store_id])
+    # @comment = Comment.new
+    # @comments = @review.comments.includes(:user).order("created_at DESC")
   end
 
   def edit

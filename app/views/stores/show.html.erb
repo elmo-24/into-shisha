@@ -128,7 +128,7 @@
               <%= image_tag "heart.png", class:"heart-icon" %>
               <span class='heart-count'>0</span>
            </div>
-          <%= link_to 'レビュー詳細', store_review_path(@store.id) %>
+          <%= link_to 'レビュー詳細', store_review_path(@store.id, review.id) %>
         </div>
      </li>
     <% end %>
