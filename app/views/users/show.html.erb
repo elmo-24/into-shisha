@@ -70,11 +70,11 @@
               <% if current_user.id == review.user_id %>
               <ul class="more-list">
               <li>
-                <%= link_to '編集', edit_review_path(review.id), method: :get, class: "item-red-btn" %>
+                <%= link_to '編集', edit_store_review_path(review.id), method: :get, class: "item-red-btn" %>
               </li>
               /
               <li>
-                <%= link_to '削除', review_path(review.id), method: :delete, class:"item-destroy" %>
+                <%= link_to '削除', store_review_path(review.id), method: :delete, class:"item-destroy" %>
               </li>
             </ul>
           </div>
