@@ -27,13 +27,15 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @store = Store.find(params[:store_id])
     @review = Review.find(params[:id])
   end
 
    def update
+    @store = Store.find(params[:store_id])
     @review = Review.find(params[:id])
     if @review.update(review_params)
-      redirect_to review_path(@review.id)
+      redirect_to store_review_path(@store.id,@review.id)
     else
       render :edit
     end
