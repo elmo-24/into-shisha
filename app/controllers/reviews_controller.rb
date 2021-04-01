@@ -42,6 +42,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @store = Store.find(params[:store_id])
     @review = Review.find(params[:id])
     if @review.destroy
       redirect_to root_path
