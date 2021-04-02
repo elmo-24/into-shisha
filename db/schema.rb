@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_21_082636) do
+ActiveRecord::Schema.define(version: 2021_03_22_055246) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2021_03_21_082636) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "store_id"
+    t.index ["store_id"], name: "index_reviews_on_store_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -62,6 +64,36 @@ ActiveRecord::Schema.define(version: 2021_03_21_082636) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  end
+
+  create_table "stores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "store_name", null: false
+    t.integer "store_type_id"
+    t.string "postal_code", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "house_number", null: false
+    t.string "phone_number", null: false
+    t.string "building_name"
+    t.string "access", null: false
+    t.string "home_page"
+    t.string "day_off"
+    t.string "opening_hours"
+    t.string "minimum_charge", null: false
+    t.string "price_info"
+    t.integer "vibe_id"
+    t.integer "bring_id"
+    t.integer "concent_id"
+    t.integer "alcohol_id"
+    t.integer "smoke_id"
+    t.integer "flavor_sale_id"
+    t.integer "wifi_id"
+    t.integer "card_id"
+    t.text "additional_info"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_stores_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -81,6 +113,8 @@ ActiveRecord::Schema.define(version: 2021_03_21_082636) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"
+  add_foreign_key "reviews", "stores"
   add_foreign_key "reviews", "users"
   add_foreign_key "sns_credentials", "users"
+  add_foreign_key "stores", "users"
 end

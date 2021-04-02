@@ -2,8 +2,9 @@ class Review < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :companion
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_one_attached :image
+  belongs_to :store
 
   with_options presence: true do
     validates :visit_date

@@ -3,9 +3,11 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
   }
-  root to: 'reviews#index'
-  resources :reviews do
-    resources :comments, only: [:create, :destroy]
+  root to: 'stores#index'
+  resources :stores do
+    resources :reviews do
+      resources :comments, only: [:create, :destroy]
+    end
   end
   resources :users
 end

@@ -20,18 +20,21 @@
 <%# レビュー一覧表示 %>
 <div class='review-contents'>
     <h2 class='title'>みんなの煙活一覧</h2>
-    <%= link_to '新規投稿', "#", class: "subtitle" %>
+    <%= link_to '新規投稿', new_store_path, class: "subtitle" %>
     <ul class='review-lists'>
 
-    <% @reviews.each do |review| %>
-      <%= render partial: "shares/index" %>
+    <% @stores.each do |store| %>
+      <%= link_to store.store_name, store_path(store.id) %>
+      <%= store.prefecture.name %>
+      <%= store.city %>
+      <%#= render partial: "shares/index" %>
     <% end %>
 
-    <% if @reviews.length == 0 %>
-      <li class='list'>
+    <%# <% if @review.length == 0 %>
+      <%# <li class='list'>
         <%= link_to '#' do %>
-        <%= image_tag "shisha.png", class: "shisha-img" %>
-        <div class='review-info'>
+        <%# <%= image_tag "shisha.png", class: "shisha-img" %>
+        <%# <div class='review-info'>
           <h3 class='review-name'>
             レビューを投稿してね！
           </h3>
@@ -39,13 +42,13 @@
             <span>20XX-01-01<br></span>
             <div class='heart-btn'>
               <%= image_tag "heart.png", class:"heart-icon" %>
-              <span class='heart-count'>0</span>
+              <%# <span class='heart-count'>0</span>
             </div>
             
           </div>
         </div>
         <% end %>
-      </li>
+      <%# </li>
     <% end%>
 
     </ul>
@@ -53,7 +56,7 @@
 
 </div>
 <%= link_to( new_store_path,method: :get, class: 'review-btn') do %>
-  <span class='review-btn-text'>店舗登録する</span>
+  <span class='review-btn-text'>店舗登録</span>
   <%= image_tag 'review-btn.png' , size: '185x50' ,class: "review-btn-icon" %>
 <% end %>
 

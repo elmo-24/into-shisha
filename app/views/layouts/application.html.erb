@@ -16,7 +16,7 @@
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            <%= link_to "投稿する", new_review_path, class: "post" %>
+            <%= link_to "店舗登録", new_store_path, class: "post" %>
              <% if current_user.image.attached? %>
               <%= link_to image_tag(current_user.image, class: "mypage-show"), user_path(current_user.id) %>
             <% else %>

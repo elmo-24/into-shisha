@@ -19,25 +19,30 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find(params[:id])
-    @comment = Comment.new
-    @comments = @review.comments.includes(:user).order("created_at DESC")
+    @store = Store.find(params[:store_id])
+    @review = Store.find(params[:store_id]).reviews.find(params[:id])
+    # @review = Review.find_by(id: params[:id], store_id: params[:store_id])
+    # @comment = Comment.new
+    # @comments = @review.comments.includes(:user).order("created_at DESC")
   end
 
   def edit
+    @store = Store.find(params[:store_id])
     @review = Review.find(params[:id])
   end
 
    def update
+    @store = Store.find(params[:store_id])
     @review = Review.find(params[:id])
     if @review.update(review_params)
-      redirect_to review_path(@review.id)
+      redirect_to store_review_path(@store.id,@review.id)
     else
       render :edit
     end
   end
 
   def destroy
+    @store = Store.find(params[:store_id])
     @review = Review.find(params[:id])
     if @review.destroy
       redirect_to root_path
@@ -49,6 +54,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:visit_date, :message, :flavor, :companion_id, :price, :image).merge(user_id: current_user.id)
+    params.require(:review).permit(:visit_date, :message, :flavor, :companion_id, :price, :image).merge(user_id: current_user.id, store_id: params[:store_id])
   end
 end
