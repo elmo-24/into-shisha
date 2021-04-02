@@ -1,0 +1,13 @@
+<%= form_with(url: search_stores_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "店名キーワード検索", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+<div class="contents row">
+  <% @stores.each do |store| %>
+    <%= link_to store.store_name, store_path(store.id) %>
+    <%= store.prefecture.name %>
+    <%= store.city %>
+    <%= store.day_off %>
+    <%= store.opening_hours %>
+  <% end %>
+</div>

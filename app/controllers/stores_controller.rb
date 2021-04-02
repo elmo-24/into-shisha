@@ -21,6 +21,10 @@ class StoresController < ApplicationController
     @reviews = @store.reviews
   end
 
+  def search
+    @stores = Store.search(params[:keyword])
+  end
+
 private
 
   def store_params

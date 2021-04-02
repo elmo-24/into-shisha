@@ -14,6 +14,14 @@ class Store < ApplicationRecord
   belongs_to :user
   has_many :reviews, dependent: :destroy
 
+  def self.search(search)
+    if search != ""
+      Store.where('store_name LIKE(?)', "%#{search}%")
+    else
+      Store.all
+    end
+  end
+
   with_options presence: true do
     validates :store_name
     validates :postal_code
