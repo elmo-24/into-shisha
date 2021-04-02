@@ -1,6 +1,8 @@
 class StoresController < ApplicationController
   def index
     @stores = Store.order("created_at DESC")
+    @q = Store.ransack(params[:q])
+    @results = @q.result(distinct: true)
   end
 
   def new
@@ -19,6 +21,12 @@ class StoresController < ApplicationController
   def show
     @store = Store.find(params[:id])
     @reviews = @store.reviews
+  end
+
+  def search
+    @stores = Store.search(params[:keyword])
+    @q = Store.ransack(params[:q])
+    @results = @q.result
   end
 
 private

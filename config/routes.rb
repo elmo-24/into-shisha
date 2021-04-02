@@ -4,7 +4,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: 'stores#index'
+
   resources :stores do
+    collection do
+      get 'search'
+    end
     resources :reviews do
       resources :comments, only: [:create, :destroy]
     end

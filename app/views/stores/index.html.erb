@@ -15,6 +15,17 @@
       <%#= link_to image_tag("app/assets/images/google.png", class:"google-btn"), "#" %>
     </div>
   </div>
+
+  <h1>店舗検索</h1>
+  <%= search_form_for @q, url: search_stores_path do |f| %>
+    <%= f.label :store_name_cont, '店舗名(キーワード可)' %>
+    <%= f.search_field :store_name_cont %>
+    <br>
+    <%= f.label :prefecture_cont, '都道府県検索' %>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"companion-select"}) %>
+    <%= f.submit '検索' %>
+  <% end %>
+
   <%# /画面上部部分  %>
 
 <%# レビュー一覧表示 %>
