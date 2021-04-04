@@ -29,6 +29,15 @@ class StoresController < ApplicationController
     @results = @q.result
   end
 
+  def edit
+    @store = Store.find(params[:id])
+  end
+
+  # def destroy
+  #   store = Store.find(params[:id])
+  #   store.destroy
+  # end
+
 private
 
   def store_params
