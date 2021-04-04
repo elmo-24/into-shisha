@@ -1,0 +1,76 @@
+<%= form_with(model: [@store], url: store_path, local: true) do |f| %>
+
+  <%# <div class="review-box"> %>
+    ストア情報を編集する
+     <%= f.label :store_name %>
+      <%= f.text_field :store_name, class:"flavor", placeholder:"店名" %>
+
+      <%= f.label :store_type %>
+      <%= f.collection_select(:store_type_id, StoreType.all, :id, :name, {}, {class:"companion-select"}) %>
+
+      <%= f.label :postal_code %>
+      <%= f.text_field :postal_code, class:"message", placeholder:"" %>
+
+      <%= f.label :prefecture %>
+      <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"companion-select"}) %>
+
+      <%= f.label :city %>
+      <%= f.text_field :city %>
+
+       <%= f.label :house_number %>
+      <%= f.text_field :house_number, class:"message", placeholder:"" %>
+
+       <%= f.label :building_name %>
+      <%= f.text_field :building_name, class:"message", placeholder:"" %>
+
+       <%= f.label :phone_number %>
+      <%= f.text_field :phone_number, class:"message", placeholder:"" %>
+
+       <%= f.label :access %>
+      <%= f.text_field :access, class:"message", placeholder:"" %>
+
+       <%= f.label :home_page %>
+      <%= f.text_field :home_page, class:"message", placeholder:"" %>
+
+       <%= f.label :day_off %>
+      <%= f.text_field :day_off, class:"message", placeholder:"" %>
+
+       <%= f.label :opening_hours %>
+      <%= f.text_field :opening_hours, class:"message", placeholder:"" %>
+
+       <%= f.label :minimum_charge %>
+      <%= f.text_field :minimum_charge, class:"message", placeholder:"" %>
+
+       <%= f.label :price_info %>
+      <%= f.text_area :price_info, class:"message", placeholder:"" %>
+
+        <%= f.label :vibe %>
+      <%= f.collection_select(:vibe_id, Vibe.all, :id, :name, {}, {class:"companion-select"}) %>
+
+       <%= f.label :bring %>
+      <%= f.collection_select(:bring_id, Bring.all, :id, :name, {}, {class:"companion-select"}) %>
+
+       <%= f.label :concent %>
+      <%= f.collection_select(:concent_id, Concent.all, :id, :name, {}, {class:"companion-select"}) %>
+
+       <%= f.label :alcohol %>
+      <%= f.collection_select(:alcohol_id, Alcohol.all, :id, :name, {}, {class:"companion-select"}) %>
+
+       <%= f.label :smoke %>
+      <%= f.collection_select(:smoke_id, Smoke.all, :id, :name, {}, {class:"companion-select"}) %>
+
+       <%= f.label :flavor_sale %>
+      <%= f.collection_select(:flavor_sale_id, FlavorSale.all, :id, :name, {}, {class:"companion-select"}) %>
+
+       <%= f.label :wifi %>
+      <%= f.collection_select(:wifi_id, Wifi.all, :id, :name, {}, {class:"companion-select"}) %>
+
+       <%= f.label :card %>
+      <%= f.collection_select(:card_id, Card.all, :id, :name, {}, {class:"companion-select"}) %>
+
+      <%= f.label :additional_info %>
+      <%= f.text_area :additional_info, class:"message", placeholder:"" %>
+
+      <%= f.submit "変更する" ,class:"btn" %>
+  <%# </div> %>
+<% end %>

@@ -132,6 +132,15 @@
         </div>
      </li>
     <% end %>
+
+       <ul class="more_list">
+          <li>
+            <%= link_to '編集', edit_store_path(@store.id), method: :get %>
+          </li>
+          <li>
+            <%= link_to '削除', store_path(@store.id), method: :delete %>
+          </li>
+        </ul>
   
 </div>
 
