@@ -3,7 +3,7 @@ class Review < ApplicationRecord
   belongs_to_active_hash :companion
   belongs_to :user
   has_many :comments, dependent: :destroy
-  has_one_attached :image
+  has_many_attached :images
   belongs_to :store
 
   with_options presence: true do
@@ -11,7 +11,7 @@ class Review < ApplicationRecord
     validates :message
     validates :flavor
     validates :price, format: { with: /\A[0-9]+\z/ }
-    validates :image
+    validates :images
   end
 
   validates :companion_id, numericality: { other_than: 1 }

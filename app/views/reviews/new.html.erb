@@ -19,11 +19,15 @@
       <%= f.label :companion %>
       <%= f.collection_select(:companion_id, Companion.all, :id, :name, {}, {class:"companion-select"}) %>
 
-      <%= f.label :image %>
-      <%= f.file_field :image %>
+      <%= f.label :images %>
+      <%= f.file_field :images, name: 'review[images][]', id: 'review_image', multiple: true %>
 
       <%= f.submit "投稿する" ,class:"btn" %>
       <div id="image-list"></div>
     </div>
   </div>
+<% end %>
+
+<% @review.images.each do |image| %>
+  <%= image_tag image, class: 'images' %>
 <% end %>
