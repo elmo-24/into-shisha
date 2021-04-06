@@ -108,7 +108,11 @@
       <%#= render partial: "shares/index" %>
       <li class='list'>
         <div class='review-img-content'>
-          <%= image_tag review.image, class: "review-img" %>
+        <% if review.images.attached? %>
+          <% review.images.each do |image| %>
+          <%= image_tag image, class: "images" %>
+          <% end %>
+          <% end %>
         </div>
         <div class='review-info'>
           <%#<h3 class='review-name'>%>

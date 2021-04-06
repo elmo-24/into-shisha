@@ -37,7 +37,11 @@
     </table>
     <div class="comment-content">
         <div class="review-img-content">
-          <%= image_tag @review.image ,class:"review-box-img" %>
+          <<div class="messages">
+          <% @review.images.each do |image| %>
+          <%= image_tag image, class:'images' %>
+          <% end %>
+         </div>
           <% if user_signed_in? %>
             <% if current_user.id == @review.user_id %>
             <ul class="more-list">
