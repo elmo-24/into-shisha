@@ -64,7 +64,11 @@
             </tbody>
           </table>
           <div class="review-img-content">
-            <%= image_tag review.image ,class:"review-box-img" %>
+          <% if review.images.attached? %>
+          <% review.images.each do |image| %>
+          <%= image_tag image, class: "images" %>
+          <% end %>
+          <% end %>
           </div>
           <% if user_signed_in? %>
               <% if current_user.id == review.user_id %>

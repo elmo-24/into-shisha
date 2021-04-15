@@ -1,19 +1,23 @@
 <h1>店舗検索</h1>
-  <%= search_form_for @q, url: search_stores_path do |f| %>
+  <%= search_form_for @q, url: stores_searchstore_path do |f| %>
     <%= f.label :store_name_cont, '店舗名(キーワード可)' %>
     <%= f.search_field :store_name_cont %>
     <br>
-    <%= f.label :prefecture_cont, '都道府県検索' %>
-        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"companion-select"}) %>
+    <%= f.label :prefecture_eq, '都道府県検索' %>
+        <%= f.collection_select(:prefecture_id_eq, Prefecture.all, :id, :name, {}, {class:"companion-select"}) %>
     <%= f.submit '検索' %>
   <% end %>
-  
+
+<h1>検索結果</h1>
+<% if @results.length !=0 %>
+
 <div class="contents row">
-  <% @stores.each do |store| %>
+  <% @results.each do |store| %>
     <%= link_to store.store_name, store_path(store.id) %>
     <%= store.prefecture.name %>
     <%= store.city %>
     <%= store.day_off %>
     <%= store.opening_hours %>
+  <% end %>
   <% end %>
 </div>

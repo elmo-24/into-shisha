@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   }
   root to: 'stores#index'
 
+  get '/stores/searchstore',  to: 'stores#search_store'
   resources :stores do
     collection do
       get 'search'

@@ -1,7 +1,9 @@
 class StoresController < ApplicationController
+
+  before_action :create_searching_object,only: [:index,:search_store]
+
   def index
-    @stores = Store.order("created_at DESC")
-    @q = Store.ransack(params[:q])
+    @stores = Store.order("created_at DESC") 
     @results = @q.result(distinct: true)
   end
 
@@ -23,9 +25,7 @@ class StoresController < ApplicationController
     @reviews = @store.reviews
   end
 
-  def search
-    @stores = Store.search(params[:keyword])
-    @q = Store.ransack(params[:q])
+  def search_store
     @results = @q.result
   end
 
@@ -42,5 +42,9 @@ private
 
   def store_params
     params.require(:store).permit(:store_name, :store_type_id, :postal_code, :prefecture_id, :city, :house_number, :phone_number, :building_name, :access, :home_page, :day_off, :opening_hours, :minimum_charge, :price_info, :vibe_id, :bring_id, :concent_id, :alcohol_id, :smoke_id, :flavor_sale_id, :wifi_id, :card_id, :additional_info).merge(user_id: current_user.id)
+  end
+
+  def create_searching_object
+    @q = Store.ransack(params[:q])
   end
 end
